@@ -59,3 +59,12 @@ wget --load-cookies=cookies2.txt -O comment_list_simple.html https://cds.cern.ch
 
 single comment view:
 wget --load-cookies=cookies2.txt -O comment_1.xml https://cds.cern.ch/record/1601810?ln=en\&of=xm
+
+Todo:
+- write python wrapper around wget to query with a cookie
+- class to represent the entries from the output (map marcxml fields
+  to class attributes)
+- clean up the html escape characters
+- local db to cache the output of the queries
+- dependence between classes and versioning of the classes (when b
+  depends on a, if a changed, update db a then db b)
