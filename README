@@ -46,3 +46,16 @@ questions we want to address.
 At this point one should consider starting to build some kind of
 metadata db, where the information can be stored. I suspect we could
 even store all of the comments (a few GB?)
+
+Note: when getting the xml, all the values are organized in 'field'
+and 'subfield'. Each of them is labeled with a tag number. The meaning
+of each tag is specified in the MarcXml documentation:
+http://www.loc.gov/marc/concise/
+
+I realized now that also the other views can be viewed as xml:
+
+comment list view:
+wget --load-cookies=cookies2.txt -O comment_list_simple.html https://cds.cern.ch/search?cc=ATLAS+Publication+Drafts+Comments\&sc=1\&p=773__n%3AATLAS-TOPQ-2012-17-002\&sf=774__a\&so=a\&of=xm\&rg=1000\&action_search=Search
+
+single comment view:
+wget --load-cookies=cookies2.txt -O comment_1.xml https://cds.cern.ch/record/1601810?ln=en\&of=xm
