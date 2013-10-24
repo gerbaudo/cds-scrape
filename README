@@ -1,0 +1,48 @@
+Try to extract from CDS some information about the ATLAS review
+process.
+
+The idea is to try to understand the basic features of the ATLAS
+review process by extracting pieces of information from the comments
+posted on CDS about the paper draft (or the internal note).
+
+Inquired to the CDS people whether there is any CDS API that can be
+used from within python.  See ticket:
+https://cern.service-now.com/service-portal/view-request.do?n=RQF0269582
+Note to self: the CDS people are very resposive, and I believe that
+they would be happy to get feedback on these topics.
+
+There is some documentation on the parameters that can be passed to
+the search module. However, there is currently no way to write a
+script that can call these API. One needs to use wget and specify the
+parameters. For some of the queries, one can specify the output to be
+in MARCXML format, so one doesn't need to parse the html.
+
+Another tricky part is that at this time they say that one can only
+query the public collections, because their API+key authentication
+method is not ready for production yet. However, there is a workaround
+for this:
+- install the 'export-cookies' firefox add-on
+- login to CDS with firefox
+- save the cookie
+- run 'wget --load-cookies=cookies.txt' http://url
+
+Example:
+TTbar charge asymmetry ATLAS Publication Draft (ATLAS-TOPQ-2012-17-002)
+
+wget --load-cookies=cookies2.txt -O main_rec.html https://cds.cern.ch/record/1600814
+
+look for the 'View the N comments' link
+https://cds.cern.ch/search?cc=ATLAS+Publication+Drafts+Comments&sc=1&p=773__n%3AATLAS-TOPQ-2012-17-002&sf=774__a&so=a&of=HBINDT&rg=1000&action_search=Search
+
+wget that (escape the \& and don't let the shell grab them).
+Get the list of comments, and access each one of them from the corresponding "Detailed record" link, eg.
+https://cds.cern.ch/record/1601810?ln=en
+
+Each comment, its reply and its follow up are stored as one CDS record.
+
+These pieces of information would already allow us to answer the basic
+questions we want to address.
+
+At this point one should consider starting to build some kind of
+metadata db, where the information can be stored. I suspect we could
+even store all of the comments (a few GB?)
