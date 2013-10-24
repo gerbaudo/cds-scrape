@@ -25,6 +25,8 @@ for this:
 - login to CDS with firefox
 - save the cookie
 - run 'wget --load-cookies=cookies.txt' http://url
+For details, see
+http://askubuntu.com/questions/161778/how-do-i-use-wget-curl-to-download-from-a-site-i-am-logged-into
 
 Example:
 TTbar charge asymmetry ATLAS Publication Draft (ATLAS-TOPQ-2012-17-002)
