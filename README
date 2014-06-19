@@ -70,3 +70,9 @@ Todo:
 - local db to cache the output of the queries
 - dependence between classes and versioning of the classes (when b
   depends on a, if a changed, update db a then db b)
+
+UCI faculties who might be interested in contributing to the
+text processing part:
+http://www.ics.uci.edu/faculty/profiles/view_faculty.php?ucinetid=cknobel
+http://cml.ics.uci.edu/?page=people&subPage=collaborators
+http://www.socsci.uci.edu/~lpearl/index.html
